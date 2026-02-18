@@ -1,6 +1,10 @@
 {
   "image": "kalilinux/kali-rolling:latest",
-  "name": "My Kali Linux",
+  "name": "My Kali Linux (Fixed)",
   "remoteUser": "root",
-  "postCreateCommand": "apt update && apt upgrade -y && apt install -y kali-linux-headless"
+  "containerEnv": {
+    "DEBIAN_FRONTEND": "noninteractive",
+    "TZ": "Asia/Kolkata"
+  },
+  "postCreateCommand": "echo 'keyboard-configuration keyboard-configuration/layout select English (US)' | debconf-set-selections && echo 'keyboard-configuration keyboard-configuration/modelcode string pc105' | debconf-set-selections && apt-get update && apt-get upgrade -y && apt-get install -y kali-linux-headless"
 }
