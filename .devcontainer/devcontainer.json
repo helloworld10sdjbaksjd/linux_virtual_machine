@@ -1,0 +1,6 @@
+{
+  "image": "kalilinux/kali-rolling:latest",
+  "name": "My Kali Linux",
+  "remoteUser": "root",
+  "postCreateCommand": "apt update && apt upgrade -y && apt install -y kali-linux-headless"
+}
